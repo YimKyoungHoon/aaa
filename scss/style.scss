@@ -1,0 +1,166 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
+@import "./common/reset";
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    position: relative;
+    display: flex;
+
+    header{
+        width: 20%;
+        height: 100%;
+        padding: 10vh 5vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        z-index: 3;
+
+        h1{
+            color: white;
+            font-size: 0;
+
+            i{
+                font-size: 5vw;
+                margin-bottom: 15px;
+            }
+
+            span{
+                display: block;
+                font: normal 1vw/1 "arial";
+            }
+        }
+
+        address{
+            font: normal 11px/1.2 "arial";
+            color: white;
+        }
+    }
+
+    nav{
+        position: absolute;
+        top: 10vh;
+        right: 5vw;
+        z-index: 3;
+
+        ul{
+            display: flex;
+
+            li{
+                a{
+                    font-size: 18px;
+                    color: #888;
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+
+    section{
+        width: 80%;
+        height: 100%;
+        display: flex;
+        position: relative;
+        z-index: 1;
+        padding-top: 15vh;
+
+        article{
+            flex: 1;
+            padding: 70px 40px 100px;
+            position: relative;
+            opacity: 0.6;
+            z-index: 1;
+            transition: all 1s;
+
+            &:hover{
+                flex: 1.5;
+                opacity: 1;
+                z-index: 2;
+
+                &::before {
+                    opacity: 1;
+                    left: 0;
+                }
+                
+                .inner {
+                    .txt {
+                        h2 {
+                            &::after {
+                                width: 120px;
+                                background-color: orange;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                width: 80%;
+                height: 95%;
+                position: absolute;
+                top: 0;
+                left: -200px;
+                opacity: 0;
+                background-color: #444;
+                transition: 1s;
+            }
+
+            .inner{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                position: relative;
+
+                .txt{
+                    width: 75%;
+
+                    h2{
+                        font: normal 2vw/1 "Alegreya Sans SC";
+                        color: white;
+                        margin-bottom: 40px;
+                        padding-top: 70px;
+                        transition: 1s;
+
+                        &::after{
+                            content: '';
+                            display: block;
+                            width: 40px;
+                            height: 2px;
+                            background-color: #777;
+                            margin-top: 20px;
+                            transition: 1s;
+                        }
+                    }
+
+                    p{
+                        font: 14px/1.4 "arial";
+                        color: #aaa;
+                    }
+                }
+
+                figure{
+                    width: 100%;
+                    height: 15vh;
+                    overflow: hidden;
+                    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+                    transition: 1s;
+
+                    video{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+}
